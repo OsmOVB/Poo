@@ -4,7 +4,6 @@ class Pedido {
   private $idPedido;
   private $precoTotal;
   private static $contadorPedidos = 0;
-  private $itens = array();
 
   public function __construct() {
       $this->idPedido = ++self::$contadorPedidos;
@@ -20,8 +19,7 @@ class Pedido {
   }
 
   public function adicionarItem(ItemCardapio $item) {
-    if ($item instanceof ItemCardapio) {
-        $this->itens[] = $item;
+    if ($item instanceof ItemCardapio) {     
         $this->precoTotal += $item->calculaPrecoFinal();
     }
   }
